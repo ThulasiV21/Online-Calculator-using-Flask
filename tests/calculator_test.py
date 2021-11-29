@@ -1,52 +1,59 @@
 """Testing the Calculator"""
 import pytest
-from calculator.calculator import Calculator
+from calc.calculator import Calculator
+from calc.history.calculations import Calculations
 
-def test_calculator_add():
-    """Testing the Add function of the calculator"""
-    # Arrange
-    value_a = 1
-    value_b = 2
-    # Act
-    result = Calculator.add_number(value_a,value_b)
-    # Assert
-    assert result == 3
 
-def test_calculator_subtract():
-    """Testing the subtract method of the calculator"""
-    # Arrange
-    value_a = 1
-    value_b = 2
-    # Act
-    result = Calculator.subtract_number(value_a, value_b)
-    # Assert
-    assert result == -1
+@pytest.fixture(name="clear_history_fixture")
+def clear_history_fixture_test():
+    """define a function that will run each time you pass it to a test, it is called a fixture"""
+    return Calculations.clear_history()
+    # You have to add the fixture function as a parameter to the test that you want to use it with
 
-def test_calculator_multiply():
-    """ Testing multiplication of two numbers"""
-    # Arrange
-    value_a = 1
-    value_b = 2
-    # Act
-    result = Calculator.multiply_numbers(value_a, value_b)
-    # Assert
-    assert result == 2
+def test_calculator_add_static(clear_history_fixture):
+    """testing that our calculator has a static method for addition"""
+    #Arrange
+    tuple_values = (1.0, 2.0, 3.0)
+    #Act
+    Calculator.__add__(tuple_values)
+    #Assert
+    assert Calculator.get_last_calculation_from_result() == 6.0 and clear_history_fixture is True
 
-def test_calculator_division():
-    """ Testing division of two numbers"""
-    # Arrange
-    value_a = 1
-    value_b = 1
-    # Act
-    result = Calculator.divide_numbers(value_a, value_b)
-    # Assert
-    assert result == 1
+def test_calculator_subtract_static(clear_history_fixture):
+    """Testing the subtract method of the calc"""
+    #Arrange
+    tuple_values = (1.0, 2.0, 3.0)
+    #Act
+    Calculator.__sub__(tuple_values)
+    #Assert
+    assert Calculator.get_last_calculation_from_result() == -4.0 and clear_history_fixture is True
 
-def test_calculator_division_exception():
-    """ Testing division exception for division by zero"""
-    # Arrange
-    value_a = 1
-    value_b = 0
-    # Act
+def test_calculator_multiply_static(clear_history_fixture):
+    """Testing the multiplication method of the calc"""
+    #Arrange
+    tuple_values = (1.0, 2.0, 1.5)
+    #Act
+    Calculator.__mul__(tuple_values)
+    #Assert
+    assert Calculator.get_last_calculation_from_result() == 3.0 and clear_history_fixture is True
+
+def test_calculator_divide_static(clear_history_fixture):
+    """Testing the division method of the calc"""
+    #Arrange
+    tuple_values = (1.0, 2.0, 4.5)
+    #Act
+    Calculator.__truediv__(tuple_values)
+    #Assert
+    assert Calculator.get_last_calculation_from_result() == 0.11111 \
+           and clear_history_fixture is True
+
+def test_calculator_divide_exception_static(clear_history_fixture):
+    """Testing the division method of the calc"""
+    #Arrange
+    tuple_values = (1.0, 0.0, 4.5)
+    #Act
+    Calculator.__truediv__(tuple_values)
+    #Assert
     with pytest.raises(ZeroDivisionError):
-        Calculator.divide_numbers(value_a,value_b)
+        assert Calculator.get_last_calculation_from_result() is True \
+               and clear_history_fixture is True
