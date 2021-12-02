@@ -5,10 +5,10 @@ from calc.utils.file_reader import PandasFileReader
 def test_pandas_read_file():
     """Testing the file type check"""
 
-def test_pandas_file_type_csv_check(addition_file_fixture):
+def test_pandas_file_type_csv_check():
     """Testing df creation after extracting data from csv file"""
     #Arrange
-    file_name = "addition_15values.csv"
+    file_name = "addition_1000values.csv"
     #Act
     df_test_csv_data = PandasFileReader(file_name).read_file()
     #Assert
@@ -17,7 +17,7 @@ def test_pandas_file_type_csv_check(addition_file_fixture):
 def test_pandas_file_type_xlsx_check():
     """Testing df creation after extracting data from excel file"""
     #Arrange
-    file_name = "addition_15values.xlsx"
+    file_name = "addition_1000values.xlsx"
     #Act
     df_test_xlsx_data = PandasFileReader(file_name).read_file()
     #Assert
