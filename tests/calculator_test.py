@@ -9,7 +9,7 @@ def test_calculator_add_static(clear_history_fixture, addition_file_fixture):
     #Arrange
     tuple_values = addition_file_fixture.value_1[5], addition_file_fixture.value_2[5]
     #Act
-    Calculator.__add__(tuple_values)
+    Calculator.addition(tuple_values)
     #Assert
     assert Calculator.get_last_calculation_from_result() == addition_file_fixture['result'][5] \
            and clear_history_fixture is True
@@ -19,7 +19,7 @@ def test_calculator_subtract_static(clear_history_fixture, subtraction_file_fixt
     #Arrange
     tuple_values = subtraction_file_fixture.value_1[5], subtraction_file_fixture.value_2[5]
     #Act
-    Calculator.__sub__(tuple_values)
+    Calculator.subtraction(tuple_values)
     #Assert
     assert Calculator.get_last_calculation_from_result() == subtraction_file_fixture['result'][5] \
            and clear_history_fixture is True
@@ -29,7 +29,7 @@ def test_calculator_multiply_static(clear_history_fixture, multiplication_file_f
     #Arrange
     tuple_values = multiplication_file_fixture.value_1[5], multiplication_file_fixture.value_2[5]
     #Act
-    Calculator.__mul__(tuple_values)
+    Calculator.multiplication(tuple_values)
     #Assert
     assert Calculator.get_last_calculation_from_result() == multiplication_file_fixture['result'][5] \
            and clear_history_fixture is True
@@ -39,7 +39,7 @@ def test_calculator_divide_static(clear_history_fixture, division_file_fixture):
     #Arrange
     tuple_values = division_file_fixture.value_1[5], division_file_fixture.value_2[5]
     #Act
-    Calculator.__truediv__(tuple_values)
+    Calculator.division(tuple_values)
     #Assert
     assert Calculator.get_last_calculation_from_result() == division_file_fixture['result'][5].round(decimals=5) \
            and clear_history_fixture is True
@@ -49,7 +49,7 @@ def test_calculator_divide_exception_static(clear_history_fixture, division_file
     #Arrange
     tuple_values = division_file_fixture.value_1[2], division_file_fixture.value_2[0]
     #Act
-    Calculator.__truediv__(tuple_values)
+    Calculator.division(tuple_values)
     #Assert
     with pytest.raises(ZeroDivisionError):
         assert Calculator.get_last_calculation_from_result() is True \

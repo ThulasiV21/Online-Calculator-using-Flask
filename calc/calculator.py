@@ -19,19 +19,19 @@ class Calculator:
         return True
 
     @staticmethod
-    def __sub__(values: tuple):
+    def subtraction(values: tuple):
         """ subtract a list of numbers from result"""
         CalculatorResult.add_calculation_to_history(Subtraction.create(values))
         return True
 
     @staticmethod
-    def __mul__(values: tuple):
+    def multiplication(values: tuple):
         """ multiply list of numbers from result"""
         CalculatorResult.add_calculation_to_history(Multiplication.create(values))
         return True
 
     @staticmethod
-    def __truediv__(values: tuple):
+    def division(values: tuple):
         """ Divide list of numbers from result"""
         CalculatorResult.add_calculation_to_history(Division.create(values))
         return True

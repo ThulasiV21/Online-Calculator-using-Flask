@@ -10,19 +10,39 @@
     {% with messages = get_flashed_messages() %}
 	  {% if messages %}
 	    {% for message in messages %}
-		  <div class="alert alert-warning alert-dismissible" role="alert">
+		  <div class="alert alert-success alert-dismissible" role="alert">
 		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true" class="closebtn">&times;</span>
           </button>
 			{{message}}
 		  </div>
 		{% endfor %}
 	  {% endif %}
 	{% endwith %}
-    <h1>result</h1>
-    <strong>Value 1: </strong> {{ value1 }} <br>
-    <strong>Value 2: </strong> {{ value2 }} <br>
-    <strong>Operation: </strong> {{ operation }} <br>
-    <strong>Result: </strong> {{ result }}
+    <h1>Result Table</h1>
+      <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Value 1</th>
+        <th>Value 2</th>
+        <th>Operation</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+{#      {% for user in users %}#}
+        <tr>
+          <td>{{ value1 }}</td>
+          <td>{{ value2 }}</td>
+          <td>{{ operation }}</td>
+          <td>{{ result }}</td>
+        </tr>
+{#      {% endfor %}#}
+    </tbody>
+  </table>
+{#    <strong>Value 1: </strong> {{ value1 }} <br>#}
+{#    <strong>Value 2: </strong> {{ value2 }} <br>#}
+{#    <strong>Operation: </strong> {{ operation }} <br>#}
+{#    <strong>Result: </strong> {{ result }}#}
 
 {% endblock %}

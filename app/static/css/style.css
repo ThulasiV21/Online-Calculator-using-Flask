@@ -137,6 +137,7 @@ footer {
     bottom: 0;
     text-align: center;
     color: white;
+    position: fixed;
 }
 
 .body-content {
@@ -308,7 +309,7 @@ footer {
     bottom: 0;
     text-align: center;
     color: white;
-    position: page;
+    position: absolute;
     padding: 0;
 }
 
@@ -425,4 +426,8 @@ footer {
 .img-flex-row {
     display: flex;
     flex-direction: row;
+}
+
+.closebtn:hover {
+  color: black;!important;
 }

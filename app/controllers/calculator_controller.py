@@ -7,11 +7,13 @@ class CalculatorController(ControllerBase):
     @staticmethod
     def post():
         if request.form['value1'] == '' or request.form['value2'] == '':
-            error = 'You must enter a value for value 1 and or value 2'
+            error = 'Please enter numeric values'
             return render_template('calculator.html', error=error)
+        # elif request.form['value1'] = /[^a-zA-Z0-9 ]/g or request.form['value2'] == [/a-zA-Z/]:
+        #     error = 'Please enter numeric values'
+        #     return render_template('calculator.html', error=error)
         else:
-            flash('You successfully calculated')
-            flash('You are awesome')
+            flash('Calculation was successful')
 
             # get the values out of the form
             value1 = request.form['value1']
