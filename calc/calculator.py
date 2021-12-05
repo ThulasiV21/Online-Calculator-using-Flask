@@ -13,7 +13,7 @@ class Calculator:
         return CalculatorResult.get_last_calculation_result()
 
     @staticmethod
-    def __add__(values: tuple):
+    def addition(values: tuple):
         """ adds list of numbers"""
         CalculatorResult.add_calculation_to_history(Addition.create(values))
         return True

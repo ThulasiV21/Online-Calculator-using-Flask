@@ -2,16 +2,25 @@
 {% block title %}Index{% endblock %}
 {% block head %}
     {{ super() }}
-    <style type="text/css">
-        .important { color: #336699; }
-    </style>
 {% endblock %}
 {% block content %}
-    <h1>Index</h1>
-    <p class="important">
-      Welcome to my awesome homepage.
-        <img src="{{ url_for('static', filename='images/sample.jpeg') }}">
+<div class="home-image">
+<div class="body-content">
+    <h1 class="pd-bottom pd-bottom-10 t-align-center h1-index">Welcome to my project hub for IS601</h1>
+<div class="page-section pd-bottom-10">
+    <div class="grid-left-index">
+        <p class="grid-img-index"><a href="pythonHome.html" target="_blank" title="Object Oriented programming in Python"><img src="{{ url_for('static', filename='images/python2.webp') }}" alt="Python programming image" class="grid-img width-350"></a></p>
+    </div>
+    <div class="grid-right">
+        <p class="grid-img-index"><a href="home.html" target="_blank" title="Brief history of internet"><img src="{{ url_for('static', filename='images/image_briefhistory.jpg') }}" alt="Brief history of internet image" class="grid-img width-350"></a></p>
+    </div>
+</div>
+</div>
+<div class="divSection">
+    <p class="divBottomFontStyle-index pd-top-10">
+        <span><b>Click on</b></span> your choice of topic of interest to know more!!
     </p>
+</div>
+</div>
 
-<a href="/good/1.0/2.0">One Plus Two Good</a><br><a href="/bad/1/2">One Plus Two Bad</a>
 {% endblock %}
