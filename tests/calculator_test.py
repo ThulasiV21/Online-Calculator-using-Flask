@@ -1,52 +1,56 @@
 """Testing the Calculator"""
 import pytest
-from calculator.calculator import Calculator
+from calc.calculator import Calculator
+#from tests.calculator_result_test import clear_history_fixture_test
+from calc.utils.file_reader import PandasFileReader
 
-def test_calculator_add():
-    """Testing the Add function of the calculator"""
-    # Arrange
-    value_a = 1
-    value_b = 2
-    # Act
-    result = Calculator.add_number(value_a,value_b)
-    # Assert
-    assert result == 3
+def test_calculator_add_static(clear_history_fixture, addition_file_fixture):
+    """testing that our calculator has a static method for addition"""
+    #Arrange
+    tuple_values = addition_file_fixture.value_1[5], addition_file_fixture.value_2[5]
+    #Act
+    Calculator.addition(tuple_values)
+    #Assert
+    assert Calculator.get_last_calculation_from_result() == addition_file_fixture['result'][5] \
+           and clear_history_fixture is True
 
-def test_calculator_subtract():
-    """Testing the subtract method of the calculator"""
-    # Arrange
-    value_a = 1
-    value_b = 2
-    # Act
-    result = Calculator.subtract_number(value_a, value_b)
-    # Assert
-    assert result == -1
+def test_calculator_subtract_static(clear_history_fixture, subtraction_file_fixture):
+    """Testing the subtract method of the calc"""
+    #Arrange
+    tuple_values = subtraction_file_fixture.value_1[5], subtraction_file_fixture.value_2[5]
+    #Act
+    Calculator.subtraction(tuple_values)
+    #Assert
+    assert Calculator.get_last_calculation_from_result() == subtraction_file_fixture['result'][5] \
+           and clear_history_fixture is True
 
-def test_calculator_multiply():
-    """ Testing multiplication of two numbers"""
-    # Arrange
-    value_a = 1
-    value_b = 2
-    # Act
-    result = Calculator.multiply_numbers(value_a, value_b)
-    # Assert
-    assert result == 2
+def test_calculator_multiply_static(clear_history_fixture, multiplication_file_fixture):
+    """Testing the multiplication method of the calc"""
+    #Arrange
+    tuple_values = multiplication_file_fixture.value_1[5], multiplication_file_fixture.value_2[5]
+    #Act
+    Calculator.multiplication(tuple_values)
+    #Assert
+    assert Calculator.get_last_calculation_from_result() == multiplication_file_fixture['result'][5] \
+           and clear_history_fixture is True
 
-def test_calculator_division():
-    """ Testing division of two numbers"""
-    # Arrange
-    value_a = 1
-    value_b = 1
-    # Act
-    result = Calculator.divide_numbers(value_a, value_b)
-    # Assert
-    assert result == 1
+def test_calculator_divide_static(clear_history_fixture, division_file_fixture):
+    """Testing the division method of the calc"""
+    #Arrange
+    tuple_values = division_file_fixture.value_1[5], division_file_fixture.value_2[5]
+    #Act
+    Calculator.division(tuple_values)
+    #Assert
+    assert Calculator.get_last_calculation_from_result() == division_file_fixture['result'][5].round(decimals=5) \
+           and clear_history_fixture is True
 
-def test_calculator_division_exception():
-    """ Testing division exception for division by zero"""
-    # Arrange
-    value_a = 1
-    value_b = 0
-    # Act
+def test_calculator_divide_exception_static(clear_history_fixture, division_file_fixture):
+    """Testing the division method of the calc for the exception"""
+    #Arrange
+    tuple_values = division_file_fixture.value_1[2], division_file_fixture.value_2[0]
+    #Act
+    Calculator.division(tuple_values)
+    #Assert
     with pytest.raises(ZeroDivisionError):
-        Calculator.divide_numbers(value_a,value_b)
+        assert Calculator.get_last_calculation_from_result() is True \
+               and clear_history_fixture is True

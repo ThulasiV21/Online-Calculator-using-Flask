@@ -11,3 +11,7 @@ branches:
   only:
     - main
     - development
+    - calc_part2
+    - calc_profmirroredcode_branch_part2
+    - refactor_assignment_part3
+    - refactor_part5
