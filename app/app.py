@@ -3,7 +3,7 @@ from flask import Flask
 from app.controllers.index_controller import IndexController
 from app.controllers.calculator_controller import CalculatorController
 from app.controllers.pylint_controller import PylintController
-from app.controllers.glossary_controller import GlossaryController
+from controllers.glossary_controller import GlossaryController
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
