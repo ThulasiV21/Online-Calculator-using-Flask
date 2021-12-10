@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block title %}Python Home{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="container-fluid pt-3">
+        <div class="hero-image-python"></div>
+        <div class="body-content">
+            <h1>All about Object Oriented Programming in Python</h1>
+            <br>
+            <div class="t-align-center">
+                <img class="history-home-image" src="{{ url_for('static', filename='images/python4.png') }}"
+                     alt="python programming image">
+            </div>
+            <br>
+        </div>
+        <div class="divSection">
+            <p class="divBottomFontStyle">
+                Wondering what Object Oriented Programming is and how it is related to Python?
+                Well your answer lies here in this webpage!
+            </p>
+            <p class="divBottomFontStyle pd-top-10"><span><b>Click on the tabs</b></span> to know more!!</p>
+        </div>
+    </div>
+{% endblock %}

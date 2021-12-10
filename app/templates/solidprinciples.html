@@ -1,0 +1,317 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block title %}Solid Principles{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="body-content">
+        <h3>SOLID Principles</h3>
+        <h4 class="adjust-margin">In Python</h4>
+        <div class="page-section">
+            <div class="grid-left">
+                <p>SOLID is a mnemonic abbreviation for a set of design principles created for software development in
+                    object-oriented languages. The principles in SOLID are intended to foster simpler, more robust and
+                    updatable code from software developers. Each letter in SOLID corresponds to a principle for
+                    development.</p>
+
+                <p>The SOLID principles were defined in the early 2000s by Robert C. Martin (Uncle Bob). Uncle Bob
+                    elaborated some of these and identified others already existing and said that these principles
+                    should be
+                    used to get good management of dependencies in our code.</p>
+
+                <p>SOLID is a short form. It stands for:</p>
+                <ul class="ul-python">
+                    <li>Single Responsibility Principle</li>
+                    <li>Open and Closed Principle</li>
+                    <li>Lisvok Sub situation Principle</li>
+                    <li>Interface Segregation Principle</li>
+                    <li>Dependency Inversion Principle</li>
+                </ul>
+
+                <p class="adjust-margin-bottom">The most accurate description for SOLID principles comes from the Zen of
+                    Python, by Tim Peters:</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Beautiful is better than ugly.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Explicit is better than implicit.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Simple is better than complex.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Complex is better than
+                    complicated.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Flat is better than nested.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Sparse is better than dense.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Readability counts.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Special cases aren't special enough to
+                    break the rules.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Although practicality beats
+                    purity.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Errors should never pass silently.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Unless explicitly silenced.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">In the face of ambiguity, refuse the
+                    temptation to guess.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">There should be one-- and preferably
+                    only
+                    one --obvious way to do it.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Although that way may not be obvious
+                    at
+                    first unless you're Dutch.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Now is better than never.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Although never is often better than
+                    right
+                    now.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">If the implementation is hard to
+                    explain,
+                    it's a bad idea.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">If the implementation is easy to
+                    explain,
+                    it may be a good idea.</p>
+                <p class="adjust-margin adjust-margin-bottom adjust-padding-left">Namespaces are one honking great idea
+                    --
+                    let's do more of those!</p>
+
+                <p> Now let's jump into each one of these and understand better with examples.</p>
+            </div>
+            <div class="grid-right">
+                <img src="{{ url_for('static', filename='images/solid_image1.png') }}" alt="solid principles in python" class="grid-img width-350">
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Single Responsibility Principle(SRP)</h4>
+                <p class="adjust-margin">A class/module should have only one responsibility and therefore only one
+                    reason to
+                    change. That means a class does not perform multiple jobs.</p>
+                <p>The Single Responsibility Principle (SRP) is all about increasing cohesion and decreasing coupling by
+                    organizing code around responsibilities. It's not a big leap to see why that happens. If all the
+                    code
+                    for any given responsibility is in a single place that's cohesive and while responsibilities may be
+                    similar they don't often overlap.</p>
+                <p><span><b>Relevant Zen:</b></span> There should be one-- and preferably only one --obvious way to do
+                    things</p>
+                <p><span><b>Real world example:</b></span> If it is your responsibility to sweep and my responsibility
+                    to
+                    mop there's no reason for me to keep track of whether or not the floor has been swept. I can just
+                    ask
+                    you, "has the floor been swept"? and base my action according to your response.</p>
+                <p><span><b>Technical example with explanation:</b></span> In our below Calculator example, each class
+                    has
+                    its own single responsibility like the calculator class has a single responsibility of being the
+                    outermost class that holds methods for all operations, like the ‘__add__’, ‘__sub__’, ‘__mul__’ and
+                    ‘__truediv__’, each having a single responsibility of calling the respective operations’ classes,
+                    such
+                    as ‘Addition’, ‘Subtraction’, ‘Multiplication’ and ‘Division’ respectively. These classes in-turn
+                    have a
+                    single responsibility of performing their respective operations on a list of numbers. Similarly, the
+                    class ‘CalculatorResult’ has a single responsibility of taking care of/ maintaining a list for the
+                    results after the calculation/ operation is formed. It has methods such as the ‘clear_history()’,
+                    which
+                    has a single responsibility of clearing the list of results; the ‘count_history()’, which has a
+                    single
+                    responsibility of returning the length of the list of results; the ‘get_last_calculation_object()’,
+                    which has a single responsibility of returning the latest result added to the list, so on and so
+                    forth.
+                </p>
+                <p>If you notice, all the classes have relevant methods pertaining to changing the behavior of related
+                    objects, which is also important for satisfying this principle.</p>
+            </div>
+            <div class="grid-right img-flex">
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculator.py"
+                   target="_blank"
+                   title="git hub repo for dataframe"><img src="{{ url_for('static', filename='images/calculator.png') }}"
+                                                           alt="SRP solid principle example in python"
+                                                           class="grid-img width-350"></a>
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/addition.py"
+                   target="_blank" title="git hub repo for addition"><img src="{{ url_for('static', filename='images/Addition.png') }}"
+                                                                          alt="SRP solid principle example in python"
+                                                                          class="grid-img width-350 pd-top-10"></a>
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/tests/calculator_result_test.py"
+                   target="_blank" title="git hub repo for calculator result test"><img
+                        src="{{ url_for('static', filename='images/calculator_result_test.png') }}" alt="SRP solid principle example in python"
+                        class="grid-img width-350"></a>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Open Closed Principle (OCP)</h4>
+                <p class="adjust-margin">Software Entities (classes, functions, modules) should be open for extension
+                    but
+                    closed to change.</p>
+                <p><span><b>Relevant Zen:</b></span> Simple is better than complex. Complex is better than complicated.
+                </p>
+                <p>Since the definition of change and extension are so similar it is easy to get overwhelmed by the Open
+                    Closed Principle. I've found the most intuitive way to decide if I'm making a change or extension is
+                    to
+                    think about function signatures. A change is anything that forces calling code to be updated. This
+                    could
+                    be changing the function name, swapping the order of parameters, or adding a non-default parameter.
+                    Any
+                    code that calls the function would be forced to change in accordance with the new signature. An
+                    extension, on the other hand, allows for new functionality, without having to change the calling
+                    code.
+                    This could be renaming a parameter, adding a new parameter with a default value, or adding the *arg,
+                    or
+                    **kwargs parameters. Any code that calls the function would still work as originally written. The
+                    same
+                    rules apply to classes as well.</p>
+                <p><span><b>Real world example:</b></span> In gardening, when you use single pots to plant a seed, it is
+                    not
+                    open for extension, meaning, you cannot add another plant’s seed in the same plant and you also
+                    would
+                    not be able to change once the seedling starts to grow. But on the other hand, if we plant seeds
+                    along
+                    the length of your garden in the ground, this would be open for extension, meaning, we could add ‘n’
+                    number of different seeds.</p>
+                <p><span><b>Technical example with explanation:</b></span> In the below example, as you can see there is
+                    class ‘PandasFileReader’ which has a single responsibility of reading and extracting data from an
+                    external file based on its file type using pandas (an open-source tool for data analysis in Python).
+                    It
+                    contains methods ‘read_file()‘ that read the file type and calls the respective methods based on the
+                    file type, ‘_process_xlsx_file()’ that reads and extracts data from excel file and creates a data
+                    frame
+                    for that data and finally, ‘_process_csv_file()’ that reads and extracts data from csv file and
+                    creates
+                    a data frame for that data.
+                    This class can be extended by adding methods that will read and extract data from other file types
+                    like
+                    text or tsv(tab separated file) etc. The ‘read_file()‘ method could also be extended by adding the
+                    other
+                    file types.
+                    The methods of class cannot be modified, meaning the existing methods cannot be changed or in other
+                    words there is no need to change it as the class is designed in a way that more methods can be added
+                    easily.
+                </p>
+            </div>
+            <div class="grid-right">
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/utils/file_reader.py"
+                   target="_blank" title="git hub repo for dataframe creation"><img src="{{ url_for('static', filename='images/Assert_df.png') }}"
+                                                                                    alt="OCP solid principle example in python"
+                                                                                    class="grid-img width-350"></a>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Liskov's Substituitability Principle (LSP)</h4>
+                <p class="adjust-margin adjust-margin-bottom"><span><b>Definition:</b></span> If S is a subtype of T,
+                    then
+                    objects of type T may be replaced with objects of Type S. <br>In other words, derived classes must
+                    be
+                    substitutable for their base classes without causing errors.</p>
+                <p class="adjust-margin">Following LSP allows us to use the polymorphism more confidently. We can call
+                    our
+                    derived classes referring to their base class without concern about unexpected results.</p>
+                <p><span><b>Relevant Zen:</b></span> Special cases aren’t special enough to break the rules.</p>
+                <p><span><b>Real world example:</b></span> Think of all the different types of flavored chips, they are
+                    all
+                    derived from a parent type of chips, the potato chip. They all are made in the same way, they have
+                    the
+                    same texture when eaten, they give the same kind of crunch but they have their own unique type of
+                    flavor.</p>
+                <p><span><b>Technical example with explanation:</b></span> In the below example, we have the parent
+                    class
+                    Calculation and child class ‘Addition’. We see that the child class inherit all methods from the
+                    parent
+                    class and implements its own version of ‘get_result()’ method having the same number of arguments
+                    and
+                    the objects behave the same way along with the same type of return. All child classes return the
+                    float
+                    value after the respective operations are performed.</p>
+            </div>
+            <div class="grid-right img-flex">
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/calculation.py"
+                   target="_blank" title="LSP solid principle in python"><img src="{{ url_for('static', filename='images/Calculation_encap.png') }}"
+                                                                              alt="LSP solid principle in python"
+                                                                              class="grid-img width-350"></a>
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/addition.py"
+                   target="_blank" title="LSP solid principle in python"><img src="{{ url_for('static', filename='images/Addition.png') }}"
+                                                                              alt="LSP solid principle in python"
+                                                                              class="grid-img width-350 pd-top-10"></a>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Interface Segregation Principle (ISP)</h4>
+                <p class="adjust-margin adjust-margin-bottom"><span><b>Definition:</b></span> A client should not depend
+                    on
+                    methods it does not use.</p>
+                <p class="adjust-margin">This principle suggests that “A client should not be forced to implement an
+                    interface that it does not use”</p>
+                <p><span><b>Relevant Zen:</b></span> Readability Counts && complicated is better than complex.</p>
+                <p><span><b>Real world example:</b></span> If you’re a son/daughter of a doctor you should not be forced
+                    to
+                    be a doctor rather you should be given the freedom to choose your own choice of line of profession.
+                </p>
+                <p><span><b>Technical example with explanation:</b></span> In our example below, we have two classes
+                    ‘Calculation’ and a child class ‘Subtraction’. If in the parent class, the method
+                    ‘convert_args_to_list_float()’ would not had been a static method, its child class(s) would have had
+                    to
+                    implement that method unnecessarily and repeatedly and hence does not conform to ISP principle.
+                    Thus,
+                    the method is made a static method which gives freedom for the child class.</p>
+            </div>
+            <div class="grid-right img-flex">
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/calculation.py"
+                   target="_blank" title="LSP solid principle in python"><img src="{{ url_for('static', filename='images/Calculation_encap.png') }}"
+                                                                              alt="LSP solid principle in python"
+                                                                              class="grid-img width-350 pd-top-10"></a>
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/subtraction.py"
+                   target="_blank" title="git hub repo for subtraction"><img src="{{ url_for('static', filename='images/Subtraction.png') }}"
+                                                                             alt="Inheritance example in python"
+                                                                             class="grid-img width-350 pd-top-10"></a>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Dependency Inversion Principle (DIP)</h4>
+                <p class="adjust-margin"><span><b>Definition:</b></span> High-level modules should not depend on
+                    low-level
+                    modules. They should depend on abstractions and abstractions should not depend on details, rather
+                    details should depend on abstractions.</p>
+                <p><span><b>Relevant Zen:</b></span> Explicit is Better than Implicit</p>
+                <p><span><b>Real world example:</b></span> When you are reading the news, you can read from a lot of
+                    different sources. So you are the reader are not either dependent on a particular form like
+                    newspaper or
+                    online or an app or on the source of news like news channels or social platforms. At the end of the
+                    day
+                    you receive the news you are looking for.</p>
+                <p><span><b>Technical example with explanation:</b></span> In the stated example, there are 2 classes,
+                    the
+                    ‘Calculation’ class and the ‘Multiplication’ class. The parent class, ‘Calculation’ is not dependent
+                    on
+                    the child class, ‘Multiplication’ itself but rather it depends on the abstract implementation of the
+                    ‘get_result()’ method. The parent class also is not dependent on how this method has been
+                    implemented in
+                    its child class(s).</p>
+                <p>The child class follows abstraction by defining this method in its own unique way by expecting its
+                    own
+                    object and returning a final result.</p>
+            </div>
+            <div class="grid-right img-flex">
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculator.py"
+                   target="_blank"
+                   title="git hub repo for dataframe"><img src="{{ url_for('static', filename='images/Calculation_encap.png') }}"
+                                                           alt="Polymorphism example in python"
+                                                           class="grid-img width-350 pd-top-10"></a>
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/multiplication.py"
+                   target="_blank" title="git hub repo for Multiplication"><img src="{{ url_for('static', filename='images/Multiplication.png') }}"
+                                                                                alt="Polymorphism example in python"
+                                                                                class="grid-img width-350 pd-top-10"></a>
+            </div>
+        </div>
+        <div class="divBottomFontStyle">
+            <p class="t-align-center">SOLID isn't a perfect methodology and can lead to complex applications with many
+                moving parts, and occasionally lead to writing code just in case it's needed. Using SOLID means writing
+                more
+                classes and creating more interfaces, but many modern IDE's will solve that problem through automated
+                code
+                completion.
+                That said, it does force you to separate concerns, to think about inheritance, prevent repeating code
+                and
+                carefully approach writing applications. Thinking about how objects fit together in an application is,
+                after
+                all, what object-oriented code is all about.
+            </p>
+        </div>
+        <div class="t-align-center">
+            <p class="font-larger"><span><b>Click on</b></span> the images to look into the code in detail</p>
+        </div>
+    </div>
+
+{% endblock %}

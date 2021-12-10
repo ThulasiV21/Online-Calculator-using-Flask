@@ -4,6 +4,8 @@ from app.controllers.index_controller import IndexController
 from app.controllers.calculator_controller import CalculatorController
 from app.controllers.pylint_controller import PylintController
 from app.controllers.glossary_controller import GlossaryController
+from app.controllers.python_home_controller import PythonHomeController
+from app.controllers.solid_principles_controller import SolidPrinciplesController
 from app.controllers.testing_controller import TestingController
 from app.controllers.oops_concepts_controller import OopsConceptsController
 
@@ -35,5 +37,13 @@ def testing_get():
     return TestingController.get()
 
 @app.route("/oopsConcepts", methods=['GET'])
-def ooops_concepts_get():
+def oops_concepts_get():
     return OopsConceptsController.get()
+
+@app.route("/solidprinciples", methods=['GET'])
+def solid_principles_get():
+    return SolidPrinciplesController.get()
+
+@app.route("/pythonHome", methods=['GET'])
+def python_home_get():
+    return PythonHomeController.get()
