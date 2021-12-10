@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<div class="body-content">
+    <h3>Glossary</h3>
+    <h4 class="adjust-margin">Python terminology</h4>
+    <div>
+        <div class="page-section-python">
+            <div class="grid-left-python">
+                <h4>Factory</h4>
+                <p class="adjust-margin">Factory method is a creational design pattern which solves the problem of creating product objects without specifying their concrete classes.</p>
+
+                <h4>Instantiation</h4>
+                <p class="adjust-margin">Instantiating a class is creating a copy of the class which inherits all class variables and methods. </p>
+
+                <h4>Object</h4>
+                <p class="adjust-margin adjust-margin-bottom">An object is simply a collection of data (variables) and methods (functions) that act on those data.</p>
+                <p class="adjust-margin">It is an element or instance of a class and has the behaviors of their class.</p>
+
+                <h4>Class</h4>
+                <p class="adjust-margin adjust-margin-bottom">A class describes the contents of the objects that belong to it: it describes an aggregate of data fields (called instance variables) and defines the operations (called methods).</p>
+                <p class="adjust-margin">It is a blueprint for that object.</p>
+
+                <h4>Attribute</h4>
+                <p class="adjust-margin">Attributes of a class are function objects that define corresponding methods of its instances.</p>
+
+                <h4>Behavior</h4>
+                <p class="adjust-margin">The behavior of an object is defined by its methods, which are the functions and subroutines defined within the object class.</p>
+
+                <h4>Namespace</h4>
+                <p class="adjust-margin">A namespace is a declarative region that provides a scope to the identifiers (the names of types, functions, variables, etc) inside it.</p>
+
+                <h4>Constructor</h4>
+                <p class="adjust-margin">A constructor is a special method of a class or structure in object-oriented programming that initializes a newly created object of that type.</p>
+
+                <h4>Fixture</h4>
+                <p class="adjust-margin adjust-margin-bottom">Fixtures are functions, which will run before each test function to which it is applied.</p>
+                <p class="adjust-margin">Fixtures define the steps and data that constitute the arrange phase of a test.</p>
+
+                <h4>Type hint</h4>
+                <p class="adjust-margin adjust-margin-bottom">Type hinting is a formal solution to statically indicate the type of a value within your Python code.</p>
+                <p class="adjust-margin">Type hinting gives you the ability to define the type of values that can be passed for each argument of a function or method.</p>
+
+                <h4>Type cast</h4>
+                <p class="adjust-margin adjust-margin-bottom">Type casting is a method used to change the variables/ values declared in a certain data type into a different data type to match the operation required to be performed by the code snippet.</p>
+                <p class="adjust-margin">Type Casting is the method to convert the variable data type into a certain data type in order to the operation required to be performed by users.</p>
+
+                <h4>Unit test</h4>
+                <p class="adjust-margin adjust-margin-bottom">Unit testing is a software testing method by which individual units of source code are put under various tests to determine whether they are fit for use.</p>
+                <p class="adjust-margin">Unit Testing is the first level of software testing where the smallest testable parts of a software are tested.</p>
+
+                <h4>Class/ static variables</h4>
+                <p class="adjust-margin-bottom adjust-margin">Class variables are also known as static variables, and they are declared outside a method, with the help of the keyword 'static'.</p>
+                <p class="adjust-margin">Static variable is the one that is common to all the instances of the class. A single copy of the variable is shared among all objects.</p>
+
+                <h4>Instance variables</h4>
+                <p class="adjust-margin adjust-margin-bottom">Python instance variables are owned by an instance of a class. </p>
+                <p class="adjust-margin">The value of an instance variable can be different depending on the instance with which the variable is associated.</p>
+
+                <h4>Class method</h4>
+                <p class="adjust-margin adjust-margin-bottom">A class method is a method which is bound to the class and not the object of the class.</p>
+                <p class="adjust-margin adjust-margin-bottom">They have the access to the state of the class as it takes a class parameter that points to the class and not the object instance.</p>
+                <p class="adjust-margin">It can modify a class state that would apply across all the instances of the class.</p>
+
+                <h4>Static method</h4>
+                <p class="adjust-margin adjust-margin-bottom">A static method is also a method that is bound to the class and not the object of the class.</p>
+                <p class="adjust-margin">A static method can't access or modify the class state. It is present in a class because it makes sense for the method to be present in class.</p>
+
+                <h4>Instance method</h4>
+                <p class="adjust-margin adjust-margin-bottom">An instance method is a method that belongs to instances of a class, not to the class itself.</p>
+                <p class="adjust-margin adjust-margin-bottom">These instance methods are marked public to allow them to be used in other classes.</p>
+                <p class="adjust-margin">An instance method belong to a particular object. It can refer to instance variables and instance methods that belong to the same object. It can also use static variables and methods.</p>
+
+                <h4>Façade</h4>
+                <p class="adjust-margin">Facade is a structural design pattern that provides a simplified (but limited) interface to a complex system of classes, library or framework.</p>
+
+                <h4>Design patterns</h4>
+                <p class="adjust-margin adjust-margin-bottom">In software engineering, a design pattern is a general repeatable solution to a commonly occurring problem in software design.</p>
+                <p class="adjust-margin">A design pattern isn't a finished design that can be transformed directly into code. It is a description or template for how to solve a problem that can be used in many different situations.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

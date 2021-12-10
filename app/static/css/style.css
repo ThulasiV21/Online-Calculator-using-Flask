@@ -102,6 +102,10 @@ ul.topnav li a.active {
     background-color: darkgreen;
 }
 
+ul.topnav li a:visited {
+    background-color: darkgreen;
+}
+
 ul.topnav li.right {
     float: right;
 }
