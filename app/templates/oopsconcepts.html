@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block title %}Oops Concepts{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<div class="body-content">
+    <h3>Object Oriented Programming (OOPs) Concepts</h3>
+    <h4 class="adjust-margin">In Python</h4>
+    <div class="page-section">
+        <div class="grid-left">
+            <p>Object-oriented programming (OOP) is a method of structuring a program by bundling related properties and
+                behaviors into individual objects. In this tutorial, you’ll learn the basics of object-oriented
+                programming in Python.</p>
+
+            <h4>What are Python OOPs Concepts?</h4>
+            <p class="adjust-margin">
+                Major OOP (object-oriented programming) concepts in Python include Class, Object, Method, Inheritance,
+                Polymorphism, Data Abstraction, and Encapsulation. Let’s learn about each one of them with examples.
+            </p>
+
+            <h4>Classes and Objects</h4>
+            <p class="adjust-margin">A class is a collection of objects or you can say it is a blueprint of objects
+                defining the common attributes and behavior, It logically groups the data in such a way that code
+                reusability becomes easy.</p>
+
+            <p>An object contains data, like the raw or preprocessed materials at each step on an assembly line, and
+                behavior, like the action each assembly line component performs.
+                <br>Objects are an instance of a class. It is an entity that has state and behavior. In a nutshell, it is an
+                instance of a class that can access the data.></p>
+
+            <p>Conceptually, objects are like the components of a system. Think of a program as a factory assembly line
+                of sorts. At each step of the assembly line a system component processes some material, ultimately
+                transforming raw material into a finished product.</p>
+
+            <p>Object-Oriented Programming methodologies deal with the following concepts:</p>
+            <ol>
+                <li>Encapsulation</li>
+                <li>Abstraction</li>
+                <li>Inheritance</li>
+                <li>Polymorphism</li>
+            </ol>
+
+        </div>
+        <div class="grid-right img-flex">
+            <img src="{{ url_for('static', filename='images/oops_image2.png') }}" alt="classes and objects in python"
+                 class="grid-img width-350 pd-bottom-10">
+            <img src="{{ url_for('static', filename='images/oops_image1.png') }}" alt="oops concepts in python" class="grid-img width-350">
+        </div>
+    </div>
+    <div class="page-section">
+        <div class="grid-left">
+            <h4>Encapsulation</h4>
+            <p class="adjust-margin">It is an essential aspect of object-oriented programming. It is used to restrict
+                access to methods and variables. In encapsulation, code and data are wrapped together within a single
+                unit from being modified by accident.
+                In a raw form, encapsulation basically means binding up of data in a single class. Python does not have
+                any private keyword, unlike Java. A class shouldn’t be directly accessed but be prefixed in an
+                underscore.
+            </p>
+
+            <h4>Explanation with example</h4>
+            <p class="adjust-margin">In the example below, we have a calculation class which is inheriting ABC(Abstract
+                Base Class, we will look into this in a little while) contains two methods ‘convert_args_to_list_float’,
+                ‘create’ and ‘get_result’.</p>
+            <p>The first method is responsible for adding the values received into a list object and pass it on to the
+                calling method. The second method is responsible for returning class objects for all the classes that
+                call this class at run time. Finally, we’ll look into the last method in ‘Abstraction’ methodology.</p>
+            <p>Encapsulation is achieved by protecting the values attribute (using ‘_’ that tells the interpreter that
+                it is private). So the outside world can only call the ‘convert_args_to_list_float’ to get the list of
+                values but cannot change the list itself even by accident as the actual list of value is stored in the
+                protected attribute ‘self._values’ which cannot be changed directly by any user.</p>
+            <p>There are getter and setter methods that can be used to get and set any private attributes respectively
+                if it is required to change the private attributes as part of the business requirement. This allows us
+                to keep a track of who is changing/setting the private attribute newly further allowing us to backtrack
+                and resolve issues, if any.
+                In the example given, we have used a getter method which will get the actual attribute’s value from the
+                protected attribute.
+            </p>
+            <p>The whole idea of encapsulation is to protect attributes from being changed even by accident, hence
+                encapsulation all the attributes and their behavior in its class.</p>
+        </div>
+        <div class="grid-right img-flex">
+            <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/calculation.py"
+               target="_blank" title="git hub repo for calculation"><img src="{{ url_for('static', filename='images/Calculation_encap.png') }}"
+                                                                         alt="Encapsulation example in python"
+                                                                         class="grid-img width-350"></a>
+        </div>
+    </div>
+    <div class="page-section">
+        <div class="grid-left">
+            <h4>Abstraction</h4>
+            <p class="adjust-margin">Abstraction is used to hide the internal functionality of the function from the
+                users. The users only interact with the basic implementation of the function, but inner working is
+                hidden. User is familiar with that "what function does" but they don't know "how it does". It basically
+                means you only show the implementation details of a particular process and hide the details from the
+                user. It is used to simplify complex problems by modeling classes appropriate to the problem.</p>
+            <p>A real-world example would be driving a car. You as a user know that when you push on the accelerator
+                pedal the car speeds up and when you push on the break pedal the car comes to a stop, but you do not
+                know how to mechanics of it all works and you don’t need to as well. This is the basic principle behind
+                abstraction.</p>
+            <p>An abstract class cannot be instantiated which simply means you cannot create objects for this type of
+                class. It can only be used for inheriting the functionalities.</p>
+
+            <h4>Abstract Base Class</h4>
+            <p class="adjust-margin">An abstract base class is the common application program of the interface for a set of subclasses. It can
+                be used by the third-party, which will provide the implementations such as with plugins. It is also
+                beneficial when we work with the large code-base hard to remember all the classes.</p>
+
+            <h4>Working of Abstract classes</h4>
+            <p class="adjust-margin">Unlike the other high-level language, Python doesn't provide the abstract class itself. We need to import
+                the abc module, which provides the base for defining Abstract Base classes (ABC). The ABC works by
+                decorating methods of the base class as abstract. It registers concrete classes as the implementation of
+                the abstract base. We use the @abstractmethod decorator to define an abstract method or if we don't
+                provide the definition to the method, it automatically becomes the abstract method. Let's understand the
+                following example.</p>
+
+            <h4>Explanation with example</h4>
+            <p class="adjust-margin">In the above code, we have imported the abc module to create the abstract base class. We created the
+                Addition, Subtraction, Multiplication and Division classes that inherited the ABC class and defined an
+                abstract method named get_result(), using the '<span><b>@abstractmethod</b></span>' decorator. We have then inherited
+                (explained in the next section) the subclasses classes from the base class and implemented the abstract
+                method differently. When objects of the subclasses are created and when the get_result() method is
+                invoked, the hidden implementation of get_result() method inside each of the subclasses comes into play.
+                The implementations for the get_result() abstract method inside the abstract class is never invoked.</p>
+        </div>
+        <div class="grid-right img-flex">
+            <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/calculation.py"
+               target="_blank" title="git hub repo for calculation"><img src="{{ url_for('static', filename='images/Calculation_encap.png') }}"
+                                                                         alt="Abstraction example in python"
+                                                                         class="grid-img width-350 pd-bottom-10"></a>
+            <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/addition.py"
+               target="_blank" title="git hub repo for addition"><img src="{{ url_for('static', filename='images/Addition.png') }}"
+                                                                      alt="Abstraction example in python"
+                                                                      class="grid-img width-350 pd-top-10"></a>
+        </div>
+    </div>
+    <div class="page-section">
+        <div class="grid-left">
+            <h4>Inheritance</h4>
+            <p class="adjust-margin">Inheritance is a powerful feature in object oriented programming.</p>
+            <p>From the Programming aspect, it generally means “inheriting or transfer of characteristics from parent to
+                child class without any modification”. The new class is called the derived/child class and the one from
+                which it is derived is called a parent/base class.</p>
+            <p>In human terms, this is the relationship between children and parents where the child/children. Inherit
+                traits from their parents and/or from their grandparents. You as the child can inherit some traits and
+                have some traits of your own without the traits interfering with each other.</p>
+
+            <p>Different types of Inheritance:</p>
+            <ol>
+                <li><span><b>Single inheritance:</b></span> Single level inheritance enables a derived class to inherit
+                    characteristics from a single parent class.
+                </li>
+                <li><span><b>Multilevel Inheritance:</b></span> Multi-level inheritance enables a derived class to
+                    inherit properties from an immediate parent class which in turn inherits properties from its parent
+                    class (in a manner like, child<span>&#8594;</span>parent<span>&#8594;</span>grandparent).
+                </li>
+                <li><span><b>Hierarchical Inheritance:</b></span> Hierarchical level inheritance enables more than one
+                    derived class to inherit properties from a parent class.
+                </li>
+                <li><span><b>Multiple Inheritance:</b></span> Multiple level inheritance enables one derived class to
+                    inherit properties from more than one base class.
+                </li>
+            </ol>
+
+
+            <h4>Explanation with example</h4>
+            <p class="adjust-margin">In this example, we shall learn about single inheritance. The base/parent class is
+                ‘Calculation’ class which consists of four methods each focusing on one responsibility. The child
+                classes, which are the ‘Addition’, ‘Subtraction’, ‘Multiplication’ and ‘Division’ classes inherit all
+                these attributes and the attributes’ behavior along with their own attribute and behavior, the
+                get_result() method.
+                <br><span><b>NOTE:</b></span> The methods in the parent’s class can be accessed/called via the syntax
+                ‘ParentClassName.MethodName(self)’.
+            </p>
+        </div>
+        <div class="grid-right img-flex">
+            <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/calculation.py"
+               target="_blank" title="git hub repo for calculation"><img src="{{ url_for('static', filename='images/Calculation_encap.png') }}"
+                                                                         alt="Inheritance example in python"
+                                                                         class="grid-img width-350"></a>
+            <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/addition.py"
+               target="_blank" title="git hub repo for addition"><img src="{{ url_for('static', filename='images/Addition.png') }}"
+                                                                      alt="Inheritance example in python"
+                                                                      class="grid-img width-350 pd-top-10"></a>
+            <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/subtraction.py"
+               target="_blank" title="git hub repo for subtraction"><img src="{{ url_for('static', filename='images/Subtraction.png') }}"
+                                                                         alt="Inheritance example in python"
+                                                                         class="grid-img width-350 pd-top-10"></a>
+        </div>
+    </div>
+    <div class="page-section">
+        <div class="grid-left">
+            <h4>Polymorphism</h4>
+            <p class="adjust-margin">The literal meaning of polymorphism is the condition of occurrence in different
+                forms.</p>
+            <p>Polymorphism is a very important concept in programming. It refers to the use of a single type entity
+                (method, operator or object) to represent different types in different scenarios. Polymorphism in Python
+                allows us to define methods in the child class with the same name as defined in their parent class. This
+                makes programming more intuitive and easier.</p>
+            <p>A child class inherits all the methods from the parent class. However, in some situations, the method
+                inherited from the parent class doesn’t quite fit into the child class. In such cases, you will have to
+                re-implement method in the child class, this act of re-implementation is known as ‘Polymorphism’ in
+                Python.</p>
+
+            <p>Types of Polymorphism:</p>
+            <ol>
+                <li><span><b>Duck typing:</b></span> The term duck typing is derived from the quote which says something
+                    that walks like a duck, quacks like a duck and swims like a duck is called a duck no matter what
+                    object it is. In simple words it means something that matches its behavior to anything then it will
+                    consider a thing of that category to which it matches.
+                </li>
+                <li><span><b>Operator Overloading:</b></span> Operator overloading is the type of overloading in which
+                    an operator can be used in multiple ways beyond its predefined meaning.
+                </li>
+                <li><span><b>Method Overloading:</b></span> Method overloading is a concept where a class contains
+                    multiple methods with the same name but may have different arguments. Basically, python does not
+                    support method overloading, but there are several ways to achieve method overloading.
+                </li>
+                <li><span><b>Method Overriding:</b></span> Method overriding is the process of modifying a base class
+                    from the derived class having the same methods and same number of arguments.
+                </li>
+            </ol>
+            <h4>Explanation with Example</h4>
+            <p>In the first example is showing operator overloading type of polymorphism. The methods defined,
+                ‘__add__’, ‘__sub__’, ‘__mul__’ and ‘__truediv__’ are all modifications of the built-in operations for
+                all types of attributes like int, float etc. The built-in method is defined in a way where, when a call
+                is made to float.__add__(1.0,2.0) method, the result would be 3.0. In our example, we have re-defined
+                those methods to satisfy our requirements of calling the ‘Addition’ method of the same class and the to
+                add that calculation to a list.</p>
+            <p>Our next example explains the ‘method overriding’ type of polymorphism. The base class ‘Calculation’
+                defines a method skeleton for get_result() which the child classes inherit and re-defines them according
+                to their requirement. The ‘Multiplication’ and "Division' classes redefines it to multiply and divide
+                all the numbers it receives in a list and returns the result of the numbers. In the same manner, all the
+                other child classes inherit the properties of base class and molds/re-defines the get_result() method to
+                satisfy their requirements. For polymorphism to occur, there has to be inheritance between classes.</p>
+        </div>
+        <div class="grid-right img-flex">
+            <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculator.py" target="_blank"
+               title="git hub repo for dataframe"><img src="{{ url_for('static', filename='images/calculator.png') }}" alt="Polymorphism example in python"
+                                                       class="grid-img width-350 pd-top-50"></a>
+            <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/multiplication.py"
+               target="_blank" title="git hub repo for Multiplication"><img src="{{ url_for('static', filename='images/Multiplication.png') }}"
+                                                                            alt="Polymorphism example in python"
+                                                                            class="grid-img width-350 pd-top-50"></a>
+            <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/calc/calculations/division.py"
+               target="_blank" title="git hub repo for division"><img src="{{ url_for('static', filename='images/Division.png') }}"
+                                                                      alt="Polymorphism example in python"
+                                                                      class="grid-img width-350 pd-top-50"></a>
+        </div>
+    </div>
+    <div class="t-align-center">
+        <p class="font-larger">No one methodology can exist alone, they all are inter-dependent on each other and
+            co-exist to ultimately satisfy or showcase the object-oriented programming concepts.</p>
+        <p><span><b>Click on</b></span> the images to look into the code in detail</p>
+    </div>
+</div>
+
+{% endblock %}

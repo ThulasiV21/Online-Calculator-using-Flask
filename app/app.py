@@ -5,6 +5,7 @@ from app.controllers.calculator_controller import CalculatorController
 from app.controllers.pylint_controller import PylintController
 from app.controllers.glossary_controller import GlossaryController
 from app.controllers.testing_controller import TestingController
+from app.controllers.oops_concepts_controller import OopsConceptsController
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -32,3 +33,7 @@ def glossary_get():
 @app.route("/testing", methods=['GET'])
 def testing_get():
     return TestingController.get()
+
+@app.route("/oopsConcepts", methods=['GET'])
+def ooops_concepts_get():
+    return OopsConceptsController.get()
