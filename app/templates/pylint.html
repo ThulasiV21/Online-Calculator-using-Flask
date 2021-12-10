@@ -5,162 +5,165 @@
     {{ super() }}
 {% endblock %}
 {% block content %}
-<div class="body-content">
-    <h3>Pylint</h3>
-    <h4 class="adjust-margin">In Python</h4>
-    <div class="page-section">
-        <div class="grid-left">
-            <p>To all new programmers out there, here are some <span><b>tips and tricks</b></span> to understand the
-                <span><b>what</b></span> and <span><b>why</b></span> of pylint and finally on
-                <span><b>how</b></span> to implement pylint.</p>
+    <div class="body-content">
+        <h3>Pylint</h3>
+        <h4 class="adjust-margin">In Python</h4>
+        <div class="page-section">
+            <div class="grid-left">
+                <p>To all new programmers out there, here are some <span><b>tips and tricks</b></span> to understand the
+                    <span><b>what</b></span> and <span><b>why</b></span> of pylint and finally on
+                    <span><b>how</b></span> to implement pylint.</p>
 
-            <h4>What is pylint?</h4>
-            <p class="adjust-margin">
-                Pylint is a tool that checks for errors in Python code, tries to enforce a coding standard and looks
-                for code smells. It can also look for certain type errors, it can recommend suggestions about how
-                particular blocks can be refactored and can offer you details about the code's complexity.
-            </p>
+                <h4>What is pylint?</h4>
+                <p class="adjust-margin">
+                    Pylint is a tool that checks for errors in Python code, tries to enforce a coding standard and looks
+                    for code smells. It can also look for certain type errors, it can recommend suggestions about how
+                    particular blocks can be refactored and can offer you details about the code's complexity.
+                </p>
 
-            <p>The Python community has formalized some recommended programming styles to help everyone write code
-                in a common, agreed-upon style that makes the most sense for shared code. This style is captured in
-                <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" title="PEP8"> PEP 8</a>, the
-                <span><b>"Style Guide for Python Code"</b></span>. Pylint can be a quick and easy way of seeing if
-                your code has captured the essence of PEP 8 and is therefore friendly to other potential users.</p>
+                <p>The Python community has formalized some recommended programming styles to help everyone write code
+                    in a common, agreed-upon style that makes the most sense for shared code. This style is captured in
+                    <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" title="PEP8"> PEP 8</a>, the
+                    <span><b>"Style Guide for Python Code"</b></span>. Pylint can be a quick and easy way of seeing if
+                    your code has captured the essence of PEP 8 and is therefore friendly to other potential users.</p>
 
-            <p>Pylint will display a number of messages as it analyzes the code and it can also be used for
-                displaying some statistics about the number of warnings and errors found in different files. The
-                messages are classified under various categories such as errors and warnings.</p>
+                <p>Pylint will display a number of messages as it analyzes the code and it can also be used for
+                    displaying some statistics about the number of warnings and errors found in different files. The
+                    messages are classified under various categories such as errors and warnings.</p>
+            </div>
+            <div class="grid-right">
+                <img src="{{ url_for('static', filename='images/what.png') }}" alt="What icon"
+                     class="grid-img width-350">
+            </div>
         </div>
-        <div class="grid-right">
-            <img src="{{ url_for('static', filename='images/what.png') }}" alt="What icon" class="grid-img width-350">
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Why should I use pylint?</h4>
+                <p class="adjust-margin">
+                    Dynamic language like Python does not have a compiler that’ll catch production impacting bugs for
+                    you and plus helps you make your code more user readable and hence a linter like pylint would come
+                    to your rescue. Pylint has a lot of useful errors and warning, but also a whole lot of highly
+                    opinionated assumptions about how your code should look. And fundamentally it treats both opinions
+                    and objective problems the same way. There’s a distinction between warnings and errors, but both
+                    useful and useless stuff is in the warning category. Pylint can tell you where you may have run
+                    astray and point you in the direction to figure out what you have done and how to do better.
+                    You can run Pylint in a mode where it only complains about obvious errors—but then you’ll miss out
+                    on some of the important warnings that make Pylint so useful.
+                </p>
+            </div>
+            <div class="grid-right">
+                <img src="{{ url_for('static', filename='images/why.png') }}" alt="Why icon" class="grid-img width-350">
+            </div>
         </div>
-    </div>
-    <div class="page-section">
-        <div class="grid-left">
-            <h4>Why should I use pylint?</h4>
-            <p class="adjust-margin">
-                Dynamic language like Python does not have a compiler that’ll catch production impacting bugs for
-                you and plus helps you make your code more user readable and hence a linter like pylint would come
-                to your rescue. Pylint has a lot of useful errors and warning, but also a whole lot of highly
-                opinionated assumptions about how your code should look. And fundamentally it treats both opinions
-                and objective problems the same way. There’s a distinction between warnings and errors, but both
-                useful and useless stuff is in the warning category. Pylint can tell you where you may have run
-                astray and point you in the direction to figure out what you have done and how to do better.
-                You can run Pylint in a mode where it only complains about obvious errors—but then you’ll miss out
-                on some of the important warnings that make Pylint so useful.
-            </p>
-        </div>
-        <div class="grid-right">
-            <img src="{{ url_for('static', filename='images/why.png') }}" alt="Why icon" class="grid-img width-350">
-        </div>
-    </div>
-    <div class="page-section">
-        <div class="grid-left">
-            <h4>How to implement pylint</h4>
-            <p class="adjust-margin">
-                First step is to install pylint and there are 2 ways to do it.
-            <ol>
-                <li>Python packages where it can be installed through pip</li>
-                <ul class="ul-python">
-                    <li>Command: pip install pylint (or it can be added in your requirements.txt that will be
-                        installed by your interpreter)
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>How to implement pylint</h4>
+                <p class="adjust-margin">
+                    First step is to install pylint and there are 2 ways to do it.
+                <ol>
+                    <li>Python packages where it can be installed through pip</li>
+                    <ul class="ul-python">
+                        <li>Command: pip install pylint (or it can be added in your requirements.txt that will be
+                            installed by your interpreter)
+                        </li>
+                    </ul>
+                    <li>Source distribution installation</li>
+                    <ul class="ul-python">
+                        <li>By extracting the tarball: go to the extracted dir and run cmd: python setup.py install</li>
+                        <li>In the editable mode using cmd: python setup.py develop</li>
+                    </ul>
+                    <li>For all the different IDEs there are specific ways to integrate pylint. <a
+                            href="https://pylint.pycqa.org/en/latest/user_guide/ide-integration.html" target="_blank"
+                            title="Pylint integration with different IDEs"> Click here</a> to know more.
                     </li>
-                </ul>
-                <li>Source distribution installation</li>
+                </ol>
+                </p>
+                <p>Once you have installed it, it is a good idea to run pylint for a small section of your code to first
+                    understand what and how the output would look like. You can do that by calling pylint in the command
+                    line by either just hitting the cmd as pylint, which would traverse over all of your files and
+                    folders to check. Hence to make it easier you could comment all your lines of code except for a
+                    single file and run pylint.</p>
+            </div>
+            <div class="grid-right">
+                <img src="{{ url_for('static', filename='images/how.png') }}" alt="How icon" class="grid-img width-350">
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Pylint report</h4>
+                <p class="adjust-margin">
+                    Don’t be alarmed by the report you see at first as Pylint was created or in other words is only a
+                    way to mold you into a better programmer and to open your mind into the depths of programming. But
+                    be aware of the fact that pylint does not know any better than you, so be mindful of the changes
+                    that you would need to make or not make based on your project requirements.
+                </p>
+
+                <p class="adjust-margin-bottom">Using the default text output, the message format is :
+                    MESSAGE_TYPE:LINE_NUM:[OBJECT:] MESSAGE</p>
+                <p class="adjust-margin">There are 5 kind of message types:</p>
+                <p>
                 <ul class="ul-python">
-                    <li>By extracting the tarball: go to the extracted dir and run cmd: python setup.py install</li>
-                    <li>In the editable mode using cmd: python setup.py develop</li>
+                    <li>(C) convention, for programming standard violation</li>
+                    <li>(R) refactor, for bad code smell</li>
+                    <li>(W) warning, for python specific problems</li>
+                    <li>(E) error, for probable bugs in the code</li>
+                    <li>(F) fatal, if an error occurred which prevented pylint from doing further processing.</li>
                 </ul>
-                <li>For all the different IDEs there are specific ways to integrate pylint. <a
-                        href="https://pylint.pycqa.org/en/latest/user_guide/ide-integration.html" target="_blank"
-                        title="Pylint integration with different IDEs"> Click here</a> to know more.
-                </li>
-            </ol>
-            </p>
-            <p>Once you have installed it, it is a good idea to run pylint for a small section of your code to first
-                understand what and how the output would look like. You can do that by calling pylint in the command
-                line by either just hitting the cmd as pylint, which would traverse over all of your files and
-                folders to check. Hence to make it easier you could comment all your lines of code except for a
-                single file and run pylint.</p>
+                </p>
+
+                <p>If you are using Pycharm, the pylint report would look something like the image on your right in the
+                    command line. It will tell you the error or warning is in which file of which folder, which line in
+                    that file and lastly the error or warning message. The report is pretty much straight forward. There
+                    are a list of error/warning messages, and you can look it up <a
+                            href="http://pylint-messages.wikidot.com/all-codes" target="_blank"
+                            title="About Pylint report"> here.</a></p>
+
+                <p><span><b>Note:</b></span> If you've considered what pylint has to say and decided that for this
+                    class, the code or logic you have is appropriate and reasonable, you can both suppress the error and
+                    indicate that you've considered the issue by adding a disabling comment to your class.
+                    <span><b>For eg:</b></span>
+                    pylint error: too-many-instance-attributes
+                </p>
+
+            </div>
+            <div class="grid-right img-flex">
+                <img src="{{ url_for('static', filename='images/pylintReport.png') }}" alt="Pylint report example"
+                     class="grid-img width-350">
+                <img src="{{ url_for('static', filename='images/pytest_report1.png') }}" alt="Pylint report example"
+                     class="grid-img width-350 pd-top-10">
+                <img src="{{ url_for('static', filename='images/pytest_report2.png') }}" alt="Pylint report example"
+                     class="grid-img width-350 pd-top-10 pd-bottom-10">
+            </div>
         </div>
-        <div class="grid-right">
-            <img src="{{ url_for('static', filename='images/how.png') }}" alt="How icon" class="grid-img width-350">
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>How to change pylint report to your needs?</h4>
+                <p class="adjust-margin">Pylint can be <span><b>tailored</b></span> to your needs by a way of either
+                <ol>
+                    <li>Through disabling or enabling the checks you would need for your project.</li>
+                    <li>By creating a custom-made configuration file that provides a list of checks for pylint along
+                        with custom-made error/warning messages to be shown. You can generate a config file via the cmd
+                        --generate-rcfile that will contain all the original checks and messages.
+                    </li>
+                </ol>
+                </p>
+            </div>
+            <div class="grid-right img-flex">
+                <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/.pylintrc" target="_blank"
+                   title="git repository">
+                    <img src="{{ url_for('static', filename='images/pylintDisable.png') }}" alt="Pylint disable file"
+                         class="grid-img-python width-350">
+                </a>
+            </div>
         </div>
+        <div>
+            <p class="t-align-center font-larger"><span><b>To know more</b></span> about pylint <a
+                    href="https://pylint.pycqa.org/en/latest/intro.html"
+                    target="_blank"
+                    title="Pylint information webpage">Click here</a></p>
+        </div>
+
     </div>
-    <div class="page-section">
-        <div class="grid-left">
-            <h4>Pylint report</h4>
-            <p class="adjust-margin">
-                Don’t be alarmed by the report you see at first as Pylint was created or in other words is only a
-                way to mold you into a better programmer and to open your mind into the depths of programming. But
-                be aware of the fact that pylint does not know any better than you, so be mindful of the changes
-                that you would need to make or not make based on your project requirements.
-            </p>
-
-            <p class="adjust-margin-bottom">Using the default text output, the message format is :
-                MESSAGE_TYPE:LINE_NUM:[OBJECT:] MESSAGE</p>
-            <p class="adjust-margin">There are 5 kind of message types:</p>
-            <p>
-            <ul class="ul-python">
-                <li>(C) convention, for programming standard violation</li>
-                <li>(R) refactor, for bad code smell</li>
-                <li>(W) warning, for python specific problems</li>
-                <li>(E) error, for probable bugs in the code</li>
-                <li>(F) fatal, if an error occurred which prevented pylint from doing further processing.</li>
-            </ul>
-            </p>
-
-            <p>If you are using Pycharm, the pylint report would look something like the image on your right in the
-                command line. It will tell you the error or warning is in which file of which folder, which line in
-                that file and lastly the error or warning message. The report is pretty much straight forward. There
-                are a list of error/warning messages, and you can look it up <a
-                        href="http://pylint-messages.wikidot.com/all-codes" target="_blank"
-                        title="About Pylint report"> here.</a></p>
-
-            <p><span><b>Note:</b></span> If you've considered what pylint has to say and decided that for this
-                class, the code or logic you have is appropriate and reasonable, you can both suppress the error and
-                indicate that you've considered the issue by adding a disabling comment to your class.
-                <span><b>For eg:</b></span>
-                pylint error: too-many-instance-attributes
-            </p>
-
-        </div>
-        <div class="grid-right img-flex">
-            <img src="{{ url_for('static', filename='images/pylintReport.png') }}" alt="Pylint report example" class="grid-img width-350">
-            <img src="{{ url_for('static', filename='images/pytest_report1.png') }}" alt="Pylint report example" class="grid-img width-350 pd-top-10">
-            <img src="{{ url_for('static', filename='images/pytest_report2.png') }}" alt="Pylint report example"
-                 class="grid-img width-350 pd-top-10 pd-bottom-10">
-        </div>
     </div>
-    <div class="page-section">
-        <div class="grid-left">
-            <h4>How to change pylint report to your needs?</h4>
-            <p class="adjust-margin">Pylint can be <span><b>tailored</b></span> to your needs by a way of either
-            <ol>
-                <li>Through disabling or enabling the checks you would need for your project.</li>
-                <li>By creating a custom-made configuration file that provides a list of checks for pylint along
-                    with custom-made error/warning messages to be shown. You can generate a config file via the cmd
-                    --generate-rcfile that will contain all the original checks and messages.
-                </li>
-            </ol>
-            </p>
-        </div>
-        <div class="grid-right img-flex">
-            <a href="https://github.com/ThulasiV21/calc2/blob/refactor_part7_pandas/.pylintrc" target="_blank"
-               title="git repository">
-                <img src="{{ url_for('static', filename='images/pylintDisable.png') }}" alt="Pylint disable file"
-                     class="grid-img-python width-350">
-            </a>
-        </div>
-    </div>
-    <div>
-        <p class="t-align-center font-larger"><span><b>To know more</b></span> about pylint <a
-                href="https://pylint.pycqa.org/en/latest/intro.html"
-                target="_blank"
-                title="Pylint information webpage">Click here</a></p>
-    </div>
-
-</div>
-</div>
 
 {% endblock %}

@@ -1,0 +1,346 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block title %}Python Testing{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="body-content">
+        <h3>Software Testing</h3>
+        <h4 class="adjust-margin">in general and AAA testing in Python</h4>
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>What is testing?</h4>
+                <p class="adjust-margin">Software testing is the process of evaluating and verifying that a software
+                    product
+                    or application does what it is supposed to do. The benefits of testing include preventing bugs,
+                    reducing
+                    development costs and improving performance.
+                </p>
+
+                <p>
+                    Software testing is the act of examining the artifacts and the behavior of the software under test
+                    by
+                    validation and verification. Software testing can also provide an objective, independent view of the
+                    software to allow the business to appreciate and understand the risks of software implementation.
+                    Test
+                    techniques include, but not necessarily limited to:
+                </p>
+
+                <ul class="ul-python p">
+                    <li>analyzing the product requirements for completeness and correctness in various contexts like
+                        industry perspective, business perspective, feasibility and viability of implementation,
+                        usability,
+                        performance, security, infrastructure considerations, etc.
+                    </li>
+                    <li>reviewing the product architecture and the overall design of the product</li>
+                    <li>working with product developers on improvement in coding techniques, design patterns, tests that
+                        can
+                        be written as part of code based on various techniques like boundary conditions, etc.
+                    </li>
+                    <li>executing a program or application with the intent of examining behavior.</li>
+                    <li>reviewing the deployment infrastructure and associated scripts & automation.</li>
+                    <li>take part in production activities by using monitoring & observability techniques.</li>
+                </ul>
+
+            </div>
+            <div class="grid-right">
+                <img src="{{ url_for('static', filename='images/what.png') }}" alt="What icon"
+                     class="grid-img width-350">
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Why is testing required?</h4>
+                <p class="adjust-margin">Few can argue against the need for quality control when developing software.
+                    Late
+                    delivery or software defects can damage a brand’s reputation — leading to frustrated and lost
+                    customers.
+                    In extreme cases, a bug or defect can degrade interconnected systems or cause serious
+                    malfunctions.</p>
+
+                <p>Consider Nissan having to recall over 1 million cars due to a software defect in the airbag sensor
+                    detectors. Or a software bug that caused the failure of a USD 1.2 billion military satellite launch.
+                    The
+                    numbers speak for themselves. Software failures in the US cost the economy USD 1.1 trillion in
+                    assets in
+                    2016. What’s more, they impacted 4.4 billion customers.</p>
+
+                <p>Though testing itself costs money, companies can save millions per year in development and support if
+                    they have a good testing technique and QA processes in place. Early software testing uncovers
+                    problems
+                    before a product goes to market. The sooner development teams receive test feedback, the sooner they
+                    can
+                    address issues such as:
+                </p>
+                <ol>
+                    <li>Architectural flaws</li>
+                    <li>Poor design decisions</li>
+                    <li>Invalid or incorrect functionality</li>
+                    <li>Security vulnerabilities</li>
+                    <li>Scalability issues</li>
+                </ol>
+
+
+                <p>When development leaves ample room for testing, it improves software reliability and high-quality
+                    applications are delivered with few errors. A system that meets or even exceeds customer
+                    expectations
+                    leads to potentially more sales and greater market share.</p>
+            </div>
+            <div class="grid-right">
+                <img src="{{ url_for('static', filename='images/why.png') }}" alt="Why icon" class="grid-img width-350">
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Types of testing</h4>
+                <p class="adjust-margin">There are many different types of software tests, each with specific objectives
+                    and
+                    strategies:
+                </p>
+                <ul class="ul-python">
+                    <li><span><b>Acceptance testing:</b></span> Verifying whether the whole system works as intended.
+                    </li>
+                    <li><span><b>Integration testing:</b></span> Ensuring that software components or functions operate
+                        together.
+                    </li>
+                    <li><span><b>Unit testing:</b></span> Validating that each software unit performs as expected. A
+                        unit is
+                        the smallest testable component of an application.
+                    </li>
+                    <li><span><b>Functional testing:</b></span> Checking functions by emulating business scenarios,
+                        based on
+                        functional requirements. Black-box testing is a common way to verify functions.
+                    </li>
+                    <li><span><b>Performance testing:</b></span> Testing how the software performs under different
+                        workloads. Load testing, for example, is used to evaluate performance under real-life load
+                        conditions.
+                    </li>
+                    <li><span><b>Regression testing:</b></span> Checking whether new features break or degrade
+                        functionality. Sanity testing can be used to verify menus, functions and commands at the surface
+                        level, when there is no time for a full regression test.
+                    </li>
+                    <li><span><b>Stress testing:</b></span> Testing how much strain the system can take before it fails.
+                        Considered to be a type of non-functional testing.
+                    </li>
+                    <li><span><b>Usability testing:</b></span> Validating how well a customer can use a system or web
+                        application to complete a task.
+                    </li>
+                </ul>
+
+                <p>In each case, validating base requirements is a critical assessment. Just as important, exploratory
+                    testing helps a tester or testing team uncover hard-to-predict scenarios and situations that can
+                    lead to
+                    software errors.</p>
+                <p>This article will concentrate on unit testing in Python.
+                    <br>Unit testing is a software testing method by which individual units of source code are put under
+                    various tests to determine whether they are fit for use (Source). It determines and ascertains the
+                    quality of your code.
+                </p>
+                <p>Generally, when the development process is complete, the developer codes criteria, or the results
+                    that
+                    are known to be potentially practical and useful, into the test script to verify a particular unit's
+                    correctness. During test case execution, various frameworks log tests that fail any criterion and
+                    report
+                    them in a summary.</p>
+                <p>Though writing manual tests for your code is definitely a tedious and time-consuming task, Python's
+                    built-in unit testing framework has made life a lot easier where it allows you to write tests for
+                    each
+                    method to check its behavior. As and when more modules are added, it also allows you to combine and
+                    test
+                    all these single unit tests together integrating the outcomes to be as expected and hence the name
+                    ‘Integration Testing’.</p>
+                <p>Keeping track of one or two unit tests is easy but when it comes to multiple unit tests to be run at
+                    once
+                    or with respect to integration testing, keeping track of which test failed or passed becomes
+                    cumbersome.
+                    This is where test runners come in. The test runner is a special application designed for running
+                    tests,
+                    checking the output, and giving you tools for debugging and diagnosing tests and applications.</p>
+                <p>Test Runner is a library or a testing tool which reads the source code that contains unit tests and a
+                    bunch of settings which can be executed and produces its output to the console or log files.
+                    There are different Test Runners available in Python. Popular ones are:
+                </p>
+                <ol>
+                    <li><span><b>Unittest:</b></span> It is built into the standard python library</li>
+                    <li><span><b>nose or nose2:</b></span> This is an open-source application and similar to unittest
+                    </li>
+                    <li><span><b>pytest:</b></span> It supports unittest test cases execution. It has benefits like
+                        supporting built in assert statement, filtering of test cases, returning from last failing test
+                        etc
+                    </li>
+                </ol>
+
+            </div>
+            <div class="grid-right img-flex">
+                <img src="{{ url_for('static', filename='images/testing_types.webp') }}" alt="types of testing"
+                     class="grid-img width-350 pd-bottom-450">
+                <img src="{{ url_for('static', filename='images/testing_image.png') }}" alt="Types of testing"
+                     class="grid-img width-350">
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>AAA testing pattern</h4>
+                <p class="adjust-margin">The AAA pattern is a pattern for structuring tests. It breaks each test down
+                    into
+                    three parts - Arrange, Act, and Assert - where each part is a step leading to the next. The arrange
+                    step
+                    sets up the test’s input values. The act step prompts the primary function being tested. And
+                    finally,
+                    the assert step verifies that the output of the function is what was expected. In other words, each
+                    step
+                    in the pattern is a function whose return value is the input of the following step.</p>
+
+                <p>Arrange-Act-Assert is a great way to structure test cases. It prescribes an order of operations:</p>
+                <ol>
+                    <li><span><b>Arrange</b></span> inputs and targets. Arrange steps should set up the test case. Does
+                        the
+                        test require any objects or special settings? Does it need to prep a database? Does it need to
+                        log
+                        into a web app? Handle all of these operations at the start of the test.
+                    </li>
+                    <li><span><b>Act</b></span> on the target behavior. Act steps should cover the main thing to be
+                        tested.
+                        This could be calling a function or method, calling a REST API, or interacting with a web page.
+                        Keep
+                        actions focused on the target behavior.
+                    </li>
+                    <li><span><b>Assert</b></span> expected outcomes. Act steps should elicit some sort of response.
+                        Assert
+                        steps verify the goodness or badness of that response. Sometimes, assertions are as simple as
+                        checking numeric or string values. Other times, they may require checking multiple facets of a
+                        system. Assertions will ultimately determine if the test passes or fails.
+                    </li>
+                </ol>
+
+            </div>
+            <div class="grid-right">
+                <img src="{{ url_for('static', filename='images/addition_test.png') }}" alt="AAA testing example"
+                     class="grid-img width-350 pd">
+            </div>
+        </div>
+
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Pytest Fixtures</h4>
+                <p class="adjust-margin">In testing, a fixture provides a defined, reliable and consistent context for
+                    the
+                    tests. This could include environment (for example a database configured with known parameters) or
+                    content (such as a dataset).</p>
+                <p>Fixtures define the steps and data that constitute the arrange phase of a test (see Anatomy of a
+                    test).
+                    In pytest, they are functions you define that serve this purpose. They can also be used to define a
+                    test’s act phase; this is a powerful technique for designing more complex tests.</p>
+                <p>The services, state, or other operating environments set up by fixtures are accessed by test
+                    functions
+                    through arguments. For each fixture used by a test function there is typically a parameter (named
+                    after
+                    the fixture) in the test function’s definition.</p>
+                <p>We can tell pytest that a particular function is a fixture by decorating it with @pytest.fixture or
+                    in
+                    file with the name as 'conftest.py'.</p>
+                <p>The conftest.py file serves as a means of providing fixtures for an entire directory. Fixtures
+                    defined in
+                    a conftest.py can be used by any test in that package without needing to import them (pytest will
+                    automatically discover them).</p>
+            </div>
+            <div class="grid-right img-flex">
+                <img src="{{ url_for('static', filename='images/pytest_fixtures.png') }}" alt="Pytest fixtire"
+                     class="grid-img width-350 pd-top-10">
+            </div>
+        </div>
+
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>Testing with external data using pandas </h4>
+                <p class="adjust-margin">We are using pandas and Numpy libraries to test with external data.</p>
+                <p>Pandas is an open source Python package that is most widely used for data science/data analysis and
+                    machine learning tasks. It is built on top of another package named Numpy, which provides support
+                    for
+                    multi-dimensional arrays. As one of the most popular data wrangling packages, Pandas works well with
+                    many other data science modules inside the Python ecosystem, and is typically included in every
+                    Python
+                    distribution, from those that come with your operating system to commercial vendor distributions
+                    like
+                    ActiveState’s ActivePython.</p>
+                <p>Pandas makes it simple to do many of the time consuming, repetitive tasks associated with working
+                    with
+                    data</p>
+                <p>In the image on the right, we have a class 'PandasFileReader' which has methods 'file_name()',
+                    'read_file()', '_process_xlsx_file()', '_process_csv_file()', each having a single responsibility of
+                    reading the file type extension and based on the file type the respective methods are called who
+                    create
+                    dataframes by reading the external file and extracting that data into a dataframe using pandas.</p>
+            </div>
+            <div class="grid-right img-flex">
+                <img src="{{ url_for('static', filename='images/Assert_df.png') }}" alt="Pytest fixture"
+                     class="grid-img width-350">
+            </div>
+        </div>
+
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>AAA Testing using fixtures example</h4>
+                <p class="adjust-margin">In this example, we are testing a class that contains a list to keep track of
+                    the
+                    operations performed and their results.</p>
+                <p>The 'test_add_calculation_to_history()' test is testing the functionality of adding the result to the
+                    list using the fixtures 'setup_history_test_fixture' that calls method to perform an operation and
+                    then
+                    add that operation's result to the list and 'clear_history_fixture', that calls the method to clear
+                    the
+                    list.</p>
+                <p>The 'test_clear_calculation_history()' test is testing the functionality of clearing the list, also
+                    using
+                    fixtures</p>
+                <p>The 'test_get_calculation()' test is testing the functionality of retrieving a particular indexed
+                    value
+                    from the list, also using fixtures.</p>
+            </div>
+            <div class="grid-right img-flex">
+                <img src="{{ url_for('static', filename='images/calculator_result_test.png') }}" alt="Pytest fixture"
+                     class="grid-img width-350">
+            </div>
+        </div>
+
+        <div class="page-section">
+            <div class="grid-left">
+                <h4>AAA Testing using pandas example</h4>
+                <p><span><b>Example one:</b></span> In this example, we are testing the functionality of adding and
+                    subtracting numbers.</p>
+                <p>Both the tests use a common fixture 'clear_history_fixture' that calls method to clear the list (as
+                    mentioned above) and individually 'addition_file_fixture' and 'subtraction_file_fixture', each
+                    fixture
+                    creating a dataframe from external excel files for addition and subtraction respectively.</p>
+                <p>As you can see in the 'Arrange' section of AAA testing pattern, the test is arranging the test data
+                    for
+                    the test by selecting the 5th row from the dataframe and passing those values along to the 'Act'
+                    section.</p>
+                <p>In the 'Act' section, the tests are calling the respective operation classes.</p>
+                <p>In the 'Assert' section, the test is asserting(or checking, in other terms) that the value/result
+                    received from the respective operation class is the same as the expected value/result from the
+                    dataframe.</p>
+                <p><span><b>Example two:</b></span> In this example, we are testing the functionality of dividing
+                    numbers,
+                    the positive and negative scenario(dividing by zero)</p>
+                <p>The test uses a fixture 'division_file_fixture' that calls method to create a dataframe for
+                    division.</p>
+                <p>In the 'Arrange' section, the test is looping through each row of the dataframe and rendering or
+                    passing
+                    along those values as a tuple to the next section</p>
+                <p>In the 'Act' section, the test is calling the division class that divides the numbers and returns the
+                    result.</p>
+                <p>In the 'Assert' section, the test is asserting that the result received from the division class is as
+                    expected and/or as the 'result' column of the dataframe for the respective row.</p>
+            </div>
+            <div class="grid-right img-flex">
+                <img src="{{ url_for('static', filename='images/calculator_static_tests.png') }}" alt="Pytest fixture"
+                     class="grid-img width-350">
+                <img src="{{ url_for('static', filename='images/calculator_static_tests.png') }}" alt="Pytest fixture"
+                     class="grid-img width-350 pd-top-10">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
