@@ -207,7 +207,7 @@ footer {
         display: flex;
         flex-direction: row !important;
     }
-    ul.topnav li.right {float: none}
+    ul.topnav li.right {float: top}
 
     .hero-image {
         background-image: url("Images/Image1.png");
@@ -318,7 +318,7 @@ footer {
 }
 
 .hero-image-python {
-    background-image: url("Images/python5.png");
+    background-image: url('../images/python5.png');
     width: 100%;
     height: 450px;
     background-position: center;

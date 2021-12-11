@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% set active_page = "index" %}
 {% block title %}Python Home{% endblock %}
 {% block head %}
+    {% set active_page = "Python Home" %}
     {{ super() }}
 {% endblock %}
 {% block content %}
-    <div class="container-fluid pt-3">
-        <div class="hero-image-python"></div>
+    <div class="">
+        <div class="hero-image-python container-fluid pt-3"></div>
         <div class="body-content">
             <h1>All about Object Oriented Programming in Python</h1>
             <br>
@@ -16,7 +16,7 @@
             </div>
             <br>
         </div>
-        <div class="divSection">
+        <div class="divSection" style="padding-bottom: 10px">
             <p class="divBottomFontStyle">
                 Wondering what Object Oriented Programming is and how it is related to Python?
                 Well your answer lies here in this webpage!

@@ -25,10 +25,30 @@
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
           <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
           </head>
+{#            {% set navigation_bar = [#}
+{#    ('/', 'index', 'Index'),#}
+{#    ('/pythonHome', 'pythonHome', 'PythonHome'),#}
+{#    ('/calculator', 'calculator', 'Calculator')#}
+{#    ('/pylint', 'pylint', 'Pylint')#}
+{#    ('/glossary', 'glossary', 'Glossary')#}
+{#    ('/testing', 'testing', 'Testing')#}
+{#    ('/oopsConcepts', 'oopsConcepts', 'OopsConcepts')#}
+{#    ('/solidprinciples', 'solidprinciples', 'Solidprinciples')#}
+{#] -%}#}
+{#          <ul id="navigation">#}
+{#    {% for href, id, caption in navigation_bar %}#}
+{#    <li{% if id == active_page %} class="active"{% endif#}
+{#    %}><a href="{{ href|e }}">{{ caption|e }}</a>#}
+{#    </li>#}
+{#{% endfor %}#}
       {% endblock %}
 
-{% set active_page = active_page|default('index') %}
   <body>
+{#  {% set active_page = active_page|default('index') %}#}
+
+{#{% set active_page = active_page|default('index') -%}#}
+
+{#</ul>#}
 <nav>
     <div>
         <ul class="topnav">
