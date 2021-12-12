@@ -20,14 +20,14 @@ class CalculatorController(ControllerBase):
 
             flash('Calculation was successful')
             # get the values out of the form
-            # values = request.form['value'].split(";")
-            # value1 = request.form['value1']
-            # value2 = request.form['value2']
+            value1 = request.form['value1']
+            value2 = request.form['value2']
             operation = request.form['operation']
             # make the tuple
-            user_input = ('value1', 'value2', operation)
-            # this will call the correct operation
+            user_input = (value1, value2, operation)
+            # Calling the class to write the user input to csv
             FileWriter(user_input).write_to_file()
+            # this will call the correct operation
             getattr(Calculator, operation)(my_tuple)
             result = str(Calculator.get_last_calculation_from_result())
             return render_template('result.html', value1=value1, value2=value2, operation=operation, result=result)

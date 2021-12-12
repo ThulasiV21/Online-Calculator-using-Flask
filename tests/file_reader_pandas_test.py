@@ -1,4 +1,4 @@
-"""Testing pandas class"""
+"""Testing pandas file reader class"""
 import pytest
 from calc.utils.file_reader import PandasFileReader
 
