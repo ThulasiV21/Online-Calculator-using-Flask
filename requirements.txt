@@ -4,6 +4,7 @@ pytest-cov
 pytest
 pycodestyle
 pytest-pylint
+numpy
 pandas
 Flask
 uWSGI
