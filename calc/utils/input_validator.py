@@ -28,6 +28,6 @@ class InputValidator:
         if re.search(regex, self.input_value2):
             value2_check = True
         if not value1_check or not value2_check:
-            False
+            return False
         else:
             return self._input_value1, self._input_value2

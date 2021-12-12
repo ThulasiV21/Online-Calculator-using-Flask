@@ -4,8 +4,9 @@ import pandas as pd
 
 class PandasFileReader:
     """File reader class"""
-    def __init__(self, file_name):
+    def __init__(self, file_name, file_path=""):
         self._file_name = file_name
+        self._file_path = file_path
 
     @property
     def file_name(self):
@@ -29,9 +30,9 @@ class PandasFileReader:
         df_data = pd.read_excel(io=file_path, index_col=None, names=["value_1", "value_2", "result"], dtype='float')
         return df_data
 
-    def _process_csv_file(self):
+    def _process_csv_file(self, header=None):
         """Method to process data from csv file to df"""
         base_dir = os.path.dirname(os.path.realpath(__file__))
-        file_path = os.path.join(base_dir, "../../tests/input_csv_files", self.file_name)
-        df_data = pd.read_csv(file_path, header=1,names=["value_1", "value_2", "result"])
+        file_path = os.path.join(base_dir, self._file_path, self.file_name)
+        df_data = pd.read_csv(file_path , header=header, names=["value_1", "value_2", "result"])
         return df_data

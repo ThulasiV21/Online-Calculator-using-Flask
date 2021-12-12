@@ -24,6 +24,10 @@ def calculator_get():
 def calculator_post():
     return CalculatorController.post()
 
+@app.route("/result", methods=['GET'])
+def calculator_get_result():
+    return CalculatorController.get_result()
+
 @app.route("/pylint", methods=['GET'])
 def pylint_get():
     return PylintController.get()

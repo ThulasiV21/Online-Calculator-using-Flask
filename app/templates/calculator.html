@@ -23,6 +23,19 @@
         </div>
       {% endif %}
 
+        {% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+		  <div class="alert alert-success alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true" class="closebtn">&times;</span>
+          </button>
+			{{message}}
+		  </div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+    <div>
     <form action="/calculator" method="POST">
         <label for="value1">Values</label><br>
         <input type="text" id="value1" name="value1" title="Enter Number"><br>
@@ -47,7 +60,13 @@
             <label for="Division">Division</label>
           </div>
         </fieldset>
-
         <input type="submit" value="Submit">
     </form>
+    </div>
+
+    <div>
+    <form method="GET" action="/result">
+        <input type="submit" value="Show Result">
+    </form>
+    </div>
 {% endblock %}

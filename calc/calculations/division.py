@@ -13,5 +13,5 @@ class Division(Calculation):
                     division_value = division_value / value
             return round(division_value, 5)
         except ZeroDivisionError:
-            return 'ZeroDivisionError'
+            raise ZeroDivisionError
 
