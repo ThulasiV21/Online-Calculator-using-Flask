@@ -25,30 +25,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
         </head>
-        {#            {% set navigation_bar = [#}
-        {#    ('/', 'index', 'Index'),#}
-        {#    ('/pythonHome', 'pythonHome', 'PythonHome'),#}
-        {#    ('/calculator', 'calculator', 'Calculator')#}
-        {#    ('/pylint', 'pylint', 'Pylint')#}
-        {#    ('/glossary', 'glossary', 'Glossary')#}
-        {#    ('/testing', 'testing', 'Testing')#}
-        {#    ('/oopsConcepts', 'oopsConcepts', 'OopsConcepts')#}
-        {#    ('/solidprinciples', 'solidprinciples', 'Solidprinciples')#}
-        {#] -%}#}
-        {#          <ul id="navigation">#}
-        {#    {% for href, id, caption in navigation_bar %}#}
-        {#    <li{% if id == active_page %} class="active"{% endif#}
-        {#    %}><a href="{{ href|e }}">{{ caption|e }}</a>#}
-        {#    </li>#}
-        {#{% endfor %}#}
     {% endblock %}
 
 <body>
-{#  {% set active_page = active_page|default('index') %}#}
 
-{#{% set active_page = active_page|default('index') -%}#}
-
-{#</ul>#}
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fix-bottom" >
@@ -61,28 +41,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link {% if url_for(request.endpoint) == '/' %} active {% endif %}" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/pythonHome">A Little about python</a>
+                <a class="nav-link {% if url_for(request.endpoint) == '/pythonHome' %} active {% endif %}" href="/pythonHome">A Little about python</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/pylint">Pylint</a>
+                <a class="nav-link {% if url_for(request.endpoint) == '/pylint' %} active {% endif %}" href="/pylint">Pylint</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/glossary">Glossary of Python terminology</a>
+                <a class="nav-link {% if url_for(request.endpoint) == '/glossary' %} active {% endif %}" href="/glossary">Glossary of Python terminology</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/testing">Testing in Python</a>
+                <a class="nav-link {% if url_for(request.endpoint) == '/testing' %} active {% endif %}" href="/testing">Testing in Python</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/oopsConcepts">OOPS concepts in Python</a>
+                <a class="nav-link {% if url_for(request.endpoint) == '/oopsConcepts' %} active {% endif %}" href="/oopsConcepts">OOPS concepts in Python</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/solidprinciples">Solid Principles in Python</a>
+                <a class="nav-link {% if url_for(request.endpoint) == '/solidprinciples' %} active {% endif %}" href="/solidprinciples">Solid Principles in Python</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/calculator">Calculator</a>
+                <a class="nav-link {% if url_for(request.endpoint) == '/calculator' %} active {% endif %}" href="/calculator">Calculator</a>
             </li>
         </ul>
     </div>
