@@ -5,23 +5,23 @@
     {{ super() }}
 {% endblock %}
 {% block content %}
-<div class="home-image">
-<div class="body-content">
-    <h1 class="pd-bottom pd-bottom-10 t-align-center h1-index">Welcome to my project hub for IS601</h1>
-<div class="page-section pd-bottom-10">
-    <div class="grid-left-index">
-        <p class="grid-img-index"><a href="/pythonHome" title="Object Oriented programming in Python"><img src="{{ url_for('static', filename='images/python2.png') }}" alt="Python programming image" class="grid-img width-350"></a></p>
+    <div class="home-image">
+        <div class="body-content">
+            <h1 class="pd-bottom pd-bottom-10 t-align-center h1-index">Welcome to my project hub for IS601</h1>
+            <div class="page-section pd-bottom-10" style="text-align: center">
+
+                <a href="/pythonHome" title="Object Oriented programming in Python" style="margin: 0 auto"><img
+                        src="{{ url_for('static', filename='images/python2.png') }}" alt="Python programming image"
+                        class="grid-img width-350">
+                </a>
+
+            </div>
+        </div>
+        <div class="divSection">
+            <p class="divBottomFontStyle-index pd-top-10">
+                <span><b>Click on</b></span> your choice of topic of interest to know more!!
+            </p>
+        </div>
     </div>
-    <div class="grid-right">
-        <p class="grid-img-index"><a href="home.html" target="_blank" title="Brief history of internet"><img src="{{ url_for('static', filename='images/image_briefhistory.jpg') }}" alt="Brief history of internet image" class="grid-img width-350"></a></p>
-    </div>
-</div>
-</div>
-<div class="divSection">
-    <p class="divBottomFontStyle-index pd-top-10">
-        <span><b>Click on</b></span> your choice of topic of interest to know more!!
-    </p>
-</div>
-</div>
 
 {% endblock %}

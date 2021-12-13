@@ -1,9 +1,3 @@
-body {
-    padding: 0 10px;
-    margin: 0px;
-    image-resolution: from-image;
-}
-
 h1 {
     font-family: Lemonada;
     font-size: 200%;
@@ -132,6 +126,11 @@ span a:visited {
 
 span {
     color: #ffa500;
+}
+
+.body-block {
+    padding: 0 20px;
+    margin-bottom: 20px;
 }
 
 footer {
@@ -326,6 +325,10 @@ footer {
     background-repeat: no-repeat;
 }
 
+.fix-bottom {
+    padding-bottom: 0px!important;
+    margin-bottom: 0px;
+}
 
 @media (max-width: 800px) {
     .hero-image-python {
@@ -434,4 +437,9 @@ footer {
 
 .closebtn:hover {
   color: black;!important;
+}
+
+
+.m-top-250 {
+    margin-top: 250px;
 }

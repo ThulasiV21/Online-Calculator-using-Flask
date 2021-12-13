@@ -36,3 +36,9 @@
 67,89,addition,156.0
 1,90,division,0.01111
 1,0,division,ZeroDivisionError
+11,33,multiplication,363.0
+1,67,multiplication,67.0
+45,67,subtraction,-22.0
+67,89,addition,156.0
+1,90,division,0.01111
+1,0,division,ZeroDivisionError
