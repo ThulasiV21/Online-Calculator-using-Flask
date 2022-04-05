@@ -3,6 +3,8 @@ An online calculator which takes users input such as numbers and the operation(s
 The users input is also validated and flash messages displayed when necessary to promt user to input the right data.\
 The backend would calculate the result using the captured users input form the form, save the result on a file using pandas and render the results on a webpage as a table.
 
+## Tools and Technologies: Flask, Nginx, Docker, HTML, CSS, Jinja2 Template, Travis CI
+
 ## Calculator Project Setup
 [![Build Status](https://app.travis-ci.com/ThulasiV21/calc2.svg?branch=main)](https://app.travis-ci.com/ThulasiV21/calc2)
 
